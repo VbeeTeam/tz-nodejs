@@ -75,8 +75,6 @@ nodejs是单线程，异步I/O，事件驱动
 - md 创建目录
 - rmdir(rd) 删除目录
 - echo on > a.txt 创建空文件
-- echo 123 > a.txt 创建空文件
-- echo 456 >> a.txt 创建空文件
 - del 删除文件
 - cls 清屏
 - ctrl + c 结束操作

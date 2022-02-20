@@ -1,0 +1,4 @@
+以管理员身份运行vscode;
+ * 执行：get-ExecutionPolicy，显示Restricted，表示状态是禁止的;
+ * 执行：set-ExecutionPolicy RemoteSigned;
+ * 这时再执行get-ExecutionPolicy，就显示RemoteSigned
