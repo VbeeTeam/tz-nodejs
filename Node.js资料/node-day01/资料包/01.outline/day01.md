@@ -59,14 +59,27 @@ nodejs是单线程，异步I/O，事件驱动
 - ......
 
 ## 终端基本使用
+
+### 打开应用
+
+- notepad 打开记事本
+- mspaint 打开画图
+- calc 打开计算机
+- write 写字板
+- sysdm.cpl 打开环境变量设置窗口
+
 ### 常用命令
+- cd 文件夹名称 切换目录
+- cd ../ 返回上一级
+- D: 切换盘符
 - md 创建目录
-- rmdir(rd) 删除目录，目录内没有文档。
-- echo on a.txt 创建空文件
+- rmdir(rd) 删除目录
+- echo on > a.txt 创建空文件
+- echo 123 > a.txt 创建空文件
+- echo 456 >> a.txt 创建空文件
 - del 删除文件
-- rm 文件名 删除文件
-- cat 文件名 查看文件内容
-- cat > 文件名 向文件中写上内容。
+- cls 清屏
+- ctrl + c 结束操作
 
 ## Node.js开发环境准备
 
@@ -89,7 +102,7 @@ nodejs是单线程，异步I/O，事件驱动
     
     （4）配置环境变量
     
-    进入环境变量对话框，在【系统变量】下新建【NODE_PATH】，输入D:\nodejs\node_global\node_modules
+    进入环境变量对话框，在【用户变量】下新建【NODE_PATH】，输入D:\nodejs\node_global\node_modules
     
     将【用户变量】下的【Path】修改为 D:\nodejs\node_global
     
@@ -107,7 +120,7 @@ nodejs是单线程，异步I/O，事件驱动
 - 模块导出与引入
 - 模块导出机制分析
 - 模块加载规则
-    + 模块查找 不加扩展名的时候会按照如下后缀顺序进行查找 .js .json .node
+    + 模块查找 不加扩展名的时候会按照如下后缀顺序进行查找 .js .json .txt
 - 模块分类
     + 自定义模块
     + 系统核心模块
