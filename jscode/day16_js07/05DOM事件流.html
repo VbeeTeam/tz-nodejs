@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom事件流</title>
+</head>
+<body>
+    <div id="box">
+        <button>点击我</button>
+    </div>
+</body>
+</html>
+<script>
+
+    // 冒泡阶段：事件从开始触发的具体元素，然后逐层向上传播到DOM最顶层的节点，这个传播过程就叫事件的冒泡
+    // 捕获阶段：事件从最顶层节点开始触发，然后逐层向下传播到具体元素接收，这个传播过程就叫事件的捕获
+
+    var btnDom = document.getElementsByTagName("button");
+    var bodyDom = document.getElementsByTagName("body");
+    var boxDom = document.getElementById("box");
+    console.log(bodyDom)
+    //冒泡阶段 传统注册方式只能发生事件冒泡，不能设置事件捕获
+    // bodyDom[0].onclick = function(){
+    //     console.log("body被点了");
+    // }
+    // btnDom[0].onclick = function(){
+    //     console.log("我被点了");
+    // }
+    // boxDom.onclick = function(){
+    //     console.log("box被点了");
+    // }
+    //捕获阶段 addEventListener(参数一，参数二，参数三) 参数三：默认false=》事件冒泡 true=>事件捕获
+    btnDom[0].addEventListener("click", function(){
+        console.log("我被点了");
+    }, true)
+    boxDom.addEventListener("click", function(){
+        console.log("box被点了");
+    }, true)
+    bodyDom[0].addEventListener("click", function(){
+        console.log("body被点了");
+    }, true)
+    document.addEventListener("click", function(){
+        console.log("document被点了");
+    }, true)
+    
+
+
+</script>

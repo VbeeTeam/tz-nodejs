@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*
+    1. 内置对象
+    js分为三个部分：ECMAScript,DOM,BOM
+    2. Math对象
+    3. Date对象 
+        var date = new Date(); // Date()构造函数，当不传值的时候，以当前系统时间创建时间对象
+        var date = new Date("2000-02-21");// 以指定时间创建时间对象
+        var date = new Date(); 
+        console.log(date.getFullYear());
+        console.log(date.getMonth()+1);
+        console.log(date.getDate());
+        console.log(date.getHours());
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+        console.log(date.getDay());
+        console.log(date.getTime());
+        console.log(Date.now());
+        案例：
+        1. 在页面上输出 XX年XX月XX日 XX:XX:XX am 星期X
+        2. 计算时间差，返回相差的天/时/分/秒
+*/
+    (function(){
+        function toTwo(ss){
+            return ss<10?'0'+ss:ss;
+        }
+        function inputDate(){
+            var date = new Date();
+            var yy = date.getFullYear();
+            var MM = date.getMonth()+1;
+            var dd = date.getDate();
+            var hh = date.getHours();
+            var mm = date.getMinutes();
+            var ss = date.getSeconds();
+            var week = date.getDay();
+            var weekArr = ["日","一","二","三","四","五","六"];
+            var apm = "AM";
+            if(hh>12){
+                apm = "PM";
+                hh -= 12;
+            }
+            return `${yy}年${toTwo(MM)}月${toTwo(dd)}日 ${toTwo(hh)}:${toTwo(mm)}:${toTwo(ss)} ${apm} 星期${weekArr[week]}`;
+        }
+        // 定时器
+        // setInterval(function(){
+        //     document.write(inputDate())
+        // },1000)
+        // 计算时间差 (从2022年1月1日12时12分00秒到现在的具体时间差)
+        function getDifference(){
+            var nowTime = Date.now(); // 当前时间
+            var otherTime = new Date("2022-1-1 12:12:00").getTime();
+            var dValue = Math.floor(Math.abs(nowTime - otherTime)/1000)
+            var second = dValue % 60;
+            var minute = Math.floor(dValue / 60 % 60)
+            var hour = Math.floor(dValue / 60 / 60 % 24)
+            var day = Math.floor(dValue / 60 / 60 / 24)
+            console.log(`倒计时：${day}天${hour}时${minute}分${second}秒`);
+        }
+        getDifference()
+    })();
+        
+
+    </script>
+</body>
+</html>

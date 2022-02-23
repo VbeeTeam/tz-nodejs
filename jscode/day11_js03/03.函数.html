@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        函数：就是一段封装好的代码，可以用来重复使用
+        定义函数的方式：
+        1)声明函数： 
+            function fn([形参...]){
+                函数体(代码块)
+            }
+        2)函数表达式
+            var fn = function([形参...]){
+                函数体(代码块)
+            }
+        函数在定义的时候，函数体并不会执行，只有当函数被调用的时候，才会执行函数体中的代码
+        函数一般用来执行某一件事，函数名一般使用动词+名次来定义，sayHello
+        function是用来定义函数的关键字，所有的字母都需要小写
+        函数名首字母也必须小写（函数名首字母大写叫做构造函数）
+
+        调用函数的方式
+            函数名([实参...])
+        调用函数的时候，就需要使用函数
+        在代码中，如果有小括号但是没有function的地方，就是在调用函数
+        有小括号和function的地方，就是在定义函数
+
+        function fn(){}定义的函数可以在任何位置来调用。
+        var fn = function(){}定义的函数只能在定义函数之后才能调用。之前调用会报错fn is not function
+
+        匿名函数：function(){console.log("匿名函数");}没有赋值给其他变量的时候，就叫做匿名函数
+        当某一个函数只需要被使用一次的时候，就可以使用匿名函数。
+        自执行函数：
+        (function(){
+            console.log("匿名函数");
+        })();
+        console.log(toSay);  当直接使用函数名的时候，只是使用了函数体
+        console.log(toSay());当函数名后面跟着小阔号的时候，才是执行函数
+
+        // 计算1-100之间所有整数的和
+        function getSum(){
+            var sum = 0;
+            for(var i = 0;i<=100;i++){
+                sum+=i;
+            }
+            console.log(sum)
+        }
+        getSum函数能够重复调用多次，但只能够计算1-100之间的整数和，不够灵活
+        参数能够让方法更为的灵活
+        function getSum(max){
+            var sum = 0;
+            for(var i = 1;i<=max;i++){
+                sum+=i;
+            }
+            console.log(sum)
+        }
+        函数中的参数有两种，分别叫做形参和实参
+        形参(形式参数)：在方法定义的时候，小括号里的变量名，就是形参；形参没有实际的值，只是用来接收方法调用时传过来的值。
+        实参(实际参数)：在方法调用的时候，小括号里的值，就是实参；实参必须是一个实际的值，传到定义方法的形参上面，当做方法中的临时变量来使用
+        函数内部是一个封闭的环境，函数内部能获取到外部的值，函数外部不能够获取到函数内部的值，要灵活的把外部的值传入函数内部，就需要使用到参数
+        **带参数的函数
+        function fn(形参1,形参2,形参3,...){}
+        **调用带参函数
+        fn(实参1,实参2,实参3,...)
+
+        案例：
+        求m-n之间多有数的和
+        function getSum(min,max){
+            // 1. min和max如果传入的不是数字怎么办
+            // 2. min和max如果相等怎么办
+            // 3. min如果大于max怎么办
+            var sum = 0;
+            for(var i = min;i<=max;i++){
+                sum+=i;
+            }
+            console.log(sum)
+        }
+        求圆的面积
+        function circleArea(r){
+            console.log(Math.PI*r*r);
+        }
+        求数组中最大值
+        function getMax(nums){
+            // 1. 如果传入的不是数组怎么办
+            // 使用instanceof判断变量是否属于某一种类型
+            console.log(nums instanceof Number);
+            var max = nums[0];
+            nums.forEach(function(v){
+                if(max<v){
+                    max = v;
+                }
+            });
+            console.log(max);
+        }
+        getMax([56,85,98,46,82,34,55,86])
+        数组反转
+        function reverse(nums){
+            var len = parseInt(nums.length/2)
+            for(var i=0;i<len;i++){
+                
+                var tmp = nums[i];
+                nums[i] = nums[nums.length-i-1];
+                nums[nums.length-i-1] = tmp;
+            } 
+            console.log(nums);
+        }
+        reverse([56,85,98,46,82,34,55,86])
+
+        函数的返回值
+        对于调用者而言，调用方法不是为了看一下方法的结果，而是为了拿到方法的结果参与其他的运算
+        对于编写者而言，编写方法输出结果没有太多的意义，要把结果返回给调用者。
+        函数返回值的关键词是return
+        返回值语法：
+        定义一个带返回值的函数
+        function fn(形参1,...){
+            // 函数体
+            return [返回值];
+        }
+        调用一个带返回值的函数，可以将有返回值的函数调用赋值给一个变量
+        var 变量 = fn(实参1,...);
+
+        函数的调用结果就是返回值，因此，我们可以直接对函数调用的结果进行操作
+
+        返回值的详解：
+            如果函数没有显式的使用return语句，函数具有默认的返回值：undefined
+            如果函数使用return语句，return后面的值就成了函数的返回值
+            如果return后面没有值，那么将结束函数，函数的返回值为undefined
+            函数使用return语句后，这个函数会在执行完return语句后立即停止并退出函数。也就是说return后面的代码都不会执行
+
+        function reverse(nums){
+            var len = parseInt(nums.length/2)
+            for(var i=0;i<len;i++){
+                var tmp = nums[i];
+                nums[i] = nums[nums.length-i-1];
+                nums[nums.length-i-1] = tmp;
+            } 
+            return nums;
+        }
+        var nums = reverse([56,85,98,46,82,34,55,86])
+        */
+
+
+
+
+
+        
+        
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兼容移除</title>
+</head>
+<body>
+    <button id="btnId">点击</button>
+</body>
+</html>
+<script src="js/common.js"></script>
+<script>
+
+    var btnDom = document.getElementById("btnId");
+    function test(){
+        console.log("兼容的注册方法");
+        removeEvent(btnDom, "click", test);
+    }
+    addEvent(btnDom, "click", test);
+
+
+
+</script>

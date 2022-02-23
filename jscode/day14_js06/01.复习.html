@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getSep(str,separator){
+            var sepArr = [];
+            var index = 0;
+            while(true){
+                if(index!=0){
+                    index++;
+                }
+                index = str.indexOf(" ",index)
+                if(index==-1){
+                    return sepArr;
+                }
+                sepArr.push(index)
+            }
+        }
+
+        // 编写一个函数：实现String类的split()方法
+        function split(str,separator){
+            str = "this is a good boy"
+            var sepArr = getSep(str,separator);
+            var newStr = [];
+            newStr.push(str.substring(0,sepArr[0]));
+            for(var i=0;i<sepArr.length;i++){
+                newStr.push(str.substring(sepArr[i]+1,sepArr[i+1]));
+            }
+            return newStr;
+        }
+        split()
+        // 编写一个函数：实现String类的substring()方法
+        function subString(str,start,end){
+            /**
+             * <param name="start" type="int">start</param>
+            */
+            if(!str){
+                throw EvalError("str is not defined")
+            }
+            if((typeof str) !== "string"){
+                str += "";
+            }
+            if(!start){
+                start = 0;
+            }
+            if(!end){
+                end = str.length
+            }
+            if(start<0 || end>str.length || start>end){
+                throw RangeError("range error")   
+            }
+
+
+            var newStr = "";
+            for(var i=start;i<end;i++){
+                newStr+=str[i];
+            }
+            return newStr;
+        }
+        
+        // console.log(subString());
+        // 编写一个函数，给数字类型的字符串添加千位分隔符
+        function setSeq(str){
+            str += '';
+            var [sub,suf] = str.split(".");
+            var revSubArr = sub.split('').reverse();
+            
+            var newArr = [];
+            for(var i=0;i<revSubArr.length;i++){
+                if(i != 0 && i%3 == 0){
+                    newArr.push(",")
+                }
+                newArr.push(revSubArr[i])
+            }
+
+            return newArr.reverse().join("")+"\."+suf
+
+        }
+        console.log(setSeq(646521864451.2));
+    </script>
+</body>
+</html>

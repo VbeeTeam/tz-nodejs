@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" />
+</body>
+</html>
+<script>
+
+    var iptDom = document.querySelector("input");
+
+    // iptDom.onkeydown = function(event){
+    //     var evt = event || window.event;
+    //     // keyCode键盘按下时返回的ASCII码
+    //     console.log(evt.keyCode);
+    // }
+    // iptDom.onkeypress = function(event){
+    //     var evt = event || window.event;
+    //     // keyCode键盘按下时返回的ASCII码
+    //     console.log(evt.keyCode);
+    // }
+    iptDom.onkeyup = function(event){
+        var evt = event || window.event;
+        // keyCode键盘按下时返回的ASCII码
+        console.log(evt.keyCode);
+    }
+    //注意：keyup和keydown不区分字母大小写，keypress区分字母大小写
+    //在实际开发中，我们更多用到的是keydown,keyup,因为不区分大小写，可以使用功能键
+    //keypress 不能识别功能键，不区分字母大小写，字母大小写返回的ASCII值不同
+
+</script>

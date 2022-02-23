@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>target和this的区别</title>
+    <style>
+        .wrap{
+            width: 500px;
+            height: 500px;
+            background-color: gray;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+        }
+        .content{
+            width: 150px;
+            height: 150px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        wrap
+        <div class="box">
+            box
+            <div class="content">
+                content
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    // target 事件触发时，真正的事件源,不会被冒泡和捕获所影响
+    // this、currentTarget 事件触发时，根据冒泡（捕获）决定是哪个元素，
+    //也就是说冒泡冒到哪个元素就是哪个元素，捕获捕到哪个元素就是哪个元素
+    //1.根据class获取元素
+    var wrapDom = document.getElementsByClassName("wrap")[0];
+    var boxDom = document.getElementsByClassName("box")[0];
+    var sonDom = document.getElementsByClassName("content")[0];
+    // console.log(sonDom);
+    // wrapDom[0].addEventListener("click", function(){}, false);
+    //2.将元素存入数组中
+    var arr = [sonDom, boxDom, wrapDom];
+    //3.循环数组注册点击事件
+    for(var i = 0; i < arr.length; i++){
+        arr[i].index = i;
+        arr[i].addEventListener("click", function(event){
+            console.log(event);
+            var ix = this.index;
+            var e = event || window.event;
+            console.log("我被点击了",arr[ix].className);
+            // console.log("this", this);
+            // console.log("currentTarget", e.currentTarget);
+            // console.log("target", e.target);
+            //阻止捕获
+            e.stopImmediatePropagation();
+        }, true)
+    }
+</script>

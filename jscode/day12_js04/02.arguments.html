@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * arguments：在js中每一个函数或方法中都有一个隐式的属性，叫arguments
+         * arguments有点类似于数组，叫做伪数组
+         * arguments用来存储所有传入的实参
+         * js中的函数，形参数量可以和实参数量不一致
+         * 形参数量>实参数量，多余的形参，会报undefined错误
+         * 实参数量>形参数量，方法会正常执行，多余的实参不会被函数使用
+         * 
+         */
+        // 计算n个数之间的和(可以传任意多个实参)
+         function fn1(){
+             var sum = 0;
+             console.log(arguments);
+             console.log([]);
+             for(var i=0;i<arguments.length;i++){
+                 sum+=arguments[i];
+             }
+             return sum;
+         }
+         console.log(fn1(1,2,3,4,5,6,7));
+        //  function pi(num,res){
+        //      if(res == undefined){
+        //          res = 10
+        //      }
+        //  }
+        // 求任意个数之间的最大值
+    </script>
+</body>
+</html>

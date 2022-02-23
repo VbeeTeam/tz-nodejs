@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止冒泡</title>
+    <style>
+        .wrap {
+            width: 500px;
+            height: 500px;
+            background-color: gray;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+        }
+
+        .content {
+            width: 150px;
+            height: 150px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap" id="wrapId">
+        wrap
+        <div class="box" id="boxId">
+            box
+            <div class="content" id="contentId">
+                content
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // evt.stopPropagation()阻止事件冒泡
+    // evt.cancelBubble = true阻止低版本IE6,7,8事件冒泡
+
+    //1.根据class获取元素
+    var wrapDom = document.getElementById("wrapId");
+    var boxDom = document.getElementById("boxId");
+    var sonDom = document.getElementById("contentId");
+    // console.log(sonDom);
+    wrapDom.onclick = function (e) {
+        var evt = e || window.event;
+        console.log("wrap")
+        if(evt.stopPropagation){
+            evt.stopPropagation();
+        }else{
+            evt.cancelBubble = true;
+        }
+    }
+    boxDom.onclick = function (e) {
+        var evt = e || window.event;
+        console.log("box")
+        if(evt.stopPropagation){
+            evt.stopPropagation();
+        }else{
+            evt.cancelBubble = true;
+        }
+    }
+    sonDom.onclick = function (e) {
+        console.log("content")
+        var evt = e || window.event;
+        // evt.stopPropagation()
+        // evt.cancelBubble = true;
+        if(evt.stopPropagation){
+            evt.stopPropagation();
+        }else{
+            evt.cancelBubble = true;
+        }
+    }
+
+
+
+</script>

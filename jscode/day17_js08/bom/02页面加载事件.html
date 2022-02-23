@@ -1,0 +1,42 @@
+<script>
+    
+    //onload:页面加载完成之后，这个过程图像、css、脚本文件js都已经被加载（已经创建完成）
+    // window.onload = function(){
+    //     var dom = document.querySelector("div");
+    //     console.log(dom);
+    // }
+
+    // DOMContentLoaded:DOM加载完成，这个过程图像、css、js、flash插件还未加载
+    document.addEventListener("DOMContentLoaded", function(){
+        var dom = document.querySelector("div");
+        console.log(dom);
+    })
+    //区别：onload所有图像、资源等加载完成之后才会触发的事件，
+    //如果过多的文件需要加载，时间会等待太久，影响用户体验，此时可以考虑DOMContentLoaded
+
+    //onunload:页面卸载
+    // window.onunload = function(){
+
+    // }
+    onunload = function(){
+        //在onunload执行的时候，所有的对话框无法使用，window对象被冻结
+        console.log("欢迎下次再来");
+        alert("欢迎下次再来");
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div>我是一个元素</div>
+   
+</body>
+</html>
+
+

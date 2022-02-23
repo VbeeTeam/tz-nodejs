@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移除事件</title>
+</head>
+<body>
+    <button>传统事件</button>
+    <button>监听注册事件</button>
+    <button>低版本IE事件注册</button>
+</body>
+</html>
+<script>
+
+    var btnDom = document.getElementsByTagName("button");
+
+    //1.绑定传统事件
+    btnDom[0].onclick = function(){
+        console.log("传统事件注册");
+        //传统的事件移除
+        btnDom[0].onclick = null;
+    }
+    //2.绑定监听注册事件
+    // btnDom[1].addEventListener("click", function(){
+    //     console.log("监听注册方法");
+    //     btnDom[1].removeEventListener("click",)
+    // })
+    function test(){
+        console.log("监听注册方法");
+        //removeEventListener移除监听注册事件
+        btnDom[1].removeEventListener("click", test);
+    }
+    // btnDom[1].addEventListener("click", test);
+    //3.低版本IE attachEvent移除
+    function test2(){
+        console.log("低版本IE注册事件方法");
+        btnDom[2].detachEvent("onclick", test2);
+    }
+    btnDom[2].attachEvent("onclick", test2);
+   
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册事件</title>
+</head>
+<body>
+    <button onclick="clickBtn()">点击</button>
+    <button>我被点击了</button>
+    <button id="btnId">事件监听注册</button>
+    <button id="btnId2">老版本IE</button>
+</body>
+</html>
+<script>
+
+    // 传统注册事件 事件绑定是唯一的，不能同时注册两个相同的事件名称 事件以on开头 click鼠标点击事件
+    function clickBtn(){
+        alert(1);
+    }
+    //1.获取DOM元素
+    var btnDom = document.getElementsByTagName("button");
+    console.log(btnDom);
+    //2.绑定事件（点击）
+    btnDom[1].onclick = function(){
+        alert(1);
+    }
+    //3.需求:在一个元素上同时绑定两个相同的点击事件
+    btnDom[1].onclick = function(){
+        alert(2);
+    }
+
+    //监听注册的方式 IE9以后才支持 可以在同一个元素上注册相同的事件名称多个
+    var btnIdDom = document.getElementById("btnId");
+    // btnIdDom.addEventListener("click", function(){
+    //     alert("我是监听注册的");
+    // })
+    // btnIdDom.addEventListener("click", function(){
+    //     alert("我是第二个提示");
+    // })
+    // btnIdDom.addEventListener("click", function(){
+    //     alert("我是第三个提示");
+    // })
+
+    //IE6\7\8注册方式
+    var btnId2Dom = document.getElementById("btnId2");
+    console.log("btnId2Dom:",btnId2Dom);
+    btnId2Dom.attachEvent("onclick", function(){
+        alert("老版本IE");
+    })
+
+
+</script>

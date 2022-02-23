@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除提示</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 60px;
+            line-height: 60px;
+            background-color: aqua;
+            text-align: center;
+            color: #fff;
+            border-radius: 5px;
+            /* margin: 0 auto; */
+            position: absolute;
+            left: 50%;
+            top: -100px;
+            /* margin-left: -100px; */
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: 0.8s;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <button>删除</button>
+    <div>删除成功</div>
+</body>
+</html>
+<script>
+    //点击删除按钮显示删除成功的弹窗，两秒之后弹窗原路返回消失
+    //获取dom元素
+    var btnDom = document.querySelector("button");
+    var divDom = document.querySelector("div");
+    //绑定点击事件
+    btnDom.onclick = function(){
+        //改变弹窗显示效果
+        divDom.style.top = "20px";
+        divDom.style.opacity = 1;
+        //两秒之后弹窗原路返回隐藏
+        setTimeout(function(){
+            divDom.style.top = "-100px";
+            divDom.style.opacity = 0;
+        },2000)
+    }
+
+</script>

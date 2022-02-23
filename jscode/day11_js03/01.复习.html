@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  
+        输出以下图案
+            1.
+            *****           
+            *****           
+            *****           
+            *****           
+            *****  
+            */
+        for(var i=0;i<5;i++){
+            for(var j=0;j<5;j++){
+                document.write("*");
+            }
+            document.write("<br>")
+        }
+        document.write("<hr>")
+        /* 
+            2.
+            *****    
+             *****   
+              *****  
+               ***** 
+                *****
+        */
+        for(var i=0;i<5;i++){
+            for(var j=0;j<i;j++){
+                document.write("&ensp;");
+            }
+            for(var j=0;j<5;j++){
+                document.write("*");
+            }
+            document.write("<br>")
+        }
+        document.write("<hr>")
+       /*
+        3.    
+                 *    
+                ***   
+               *****  
+              ******* 
+             *********  
+        */
+        for(var i=1;i<=5;i++){
+            for(var j=1;j<5-i+1;j++){
+                document.write("&ensp;");
+            }
+            for(var j=1;j<=2*i-1;j++){
+                document.write("*");
+            }
+            document.write("<br>")
+        }
+        document.write("<hr>")
+       /*
+            4. 输入数字，显示任意层数的菱形
+                 *    
+                ***   
+               *****  
+              ******* 
+             *********
+              ******* 
+               *****  
+                ***   
+                 *   
+        */
+    //    var line = prompt("请输入菱形的行数：")
+    //    var num = parseInt(line/2)-1;
+    //     for(var i=1;i<=num;i++){
+    //         for(var j=1;j<num-i+1;j++){
+    //             document.write("&ensp;");
+    //         }
+    //         for(var j=1;j<=2*i-1;j++){
+    //             document.write("*");
+    //         }
+    //         document.write("<br>")
+    //     }
+    //     for(var i=1;i<=num-1;i++){
+    //         for(var j=1;j<i+1;j++){
+    //             document.write("&ensp;");
+    //         }
+    //         for(var j=1;j<=2*(num-i)-1;j++){
+    //             document.write("*");
+    //         }
+    //         document.write("<br>")
+    //     }
+    //     document.write("<hr>")
+        /* 
+            5.输出10000以内的所有素数 
+            素数，也叫质数，只能被1和其本身整除的数叫做质数
+        */
+        // for(var i=2;i<=100;i++){
+        //     for(var j=2;j<i;j++){
+        //         if(i%j==0){
+        //             break;
+        //         }
+        //         if(j**2>i){
+        //             console.log(i,j,i%j);
+        //             break;
+        //         }
+              
+        //     }
+        // }
+        /*
+            break : 打断，会结束整个循环直接执行循环后面的语句，只对最近的一次循环有用
+            continue : 跳出本次循环，只结束一次循环，开始下一次循环   
+            可以在循环前加上【标识符:】的形式，作为循环的名字(比如k1:for)，使用【break 标识符】(比如:break k1;)，用来打断指定的循环
+        */
+        k1:for(var i=0;i<5;i++){
+            for(var j=0;j<5;j++){
+                if(j==3){
+                    break k1;
+                }
+                document.write(j);
+            }
+            document.write("<br>")
+        }
+        document.write("<hr>")
+    </script>
+</body>
+</html>

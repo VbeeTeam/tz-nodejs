@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 100px 0;
+        }
+
+        b {
+            font-size: 30px;
+        }
+
+        span {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>距离2021-8-4 17:30还有多久</h1>
+    <div>
+        <b>00</b><span>天</span><b>00</b><span>时</span><b>00</b><span>分</span><b>00</b><span>秒</span>
+    </div>
+</body>
+</html>
+<script>
+    //距离某事件还剩多久
+    //首先要知道当前时间，然后目标时间
+    //计算两个时间的差值
+    function getResult() {
+        var endTime = new Date("2021-8-4 17:30:00");
+        var startTime = new Date();
+        console.log(startTime, endTime);
+        //new Date()标准时间计算时默认是毫秒值
+        var interval = endTime - startTime;
+        console.log(interval);
+        //计算出天、时、分、秒
+        var day, hour, minute, second;
+        //毫秒换算秒
+        interval = interval / 1000;
+        console.log(interval);
+        //计算天 1d=24h=24*60m=24*60*60s
+        day = parseInt(interval / 60 / 60 / 24).toString().padStart(2, '0');
+        // day = day < 10 ? '0' + day : day; //如果day小于10就在day前面拼接字符串'0'
+        // padStart(位数，添加在起始位置)=》将字符串不足两个长度的，起始位置添加字符串'0'
+        console.log("day:", day);
+        //计算取完天数之后还剩多少时 
+        hour = parseInt(interval / 60 / 60 % 24).toString().padStart(2, '0');;
+        // hour = hour < 10 ? '0' + hour : hour;
+        console.log("hour:", hour);
+        //计算取完小时后剩的分钟
+        minute = parseInt(interval / 60 % 60).toString().padStart(2, '0');;
+        // minute = minute < 10 ? '0' + minute : minute;
+        console.log("minute:", minute);
+        //计算取完分后剩的秒
+        second = parseInt(interval % 60).toString().padStart(2, '0');;
+        // second = second < 10 ? '0' + second : second;
+        console.log("second:", second);
+        return{
+            day,
+            hour,
+            minute,
+            second
+        }
+    }
+    //调用计算出的时间，并且进行填充数据
+    function writeText(){
+        var res = getResult();
+        var bDom = document.querySelectorAll("b");
+        console.log(bDom);
+        bDom[0].innerText = res.day;
+        bDom[1].innerText = res.hour;
+        bDom[2].innerText = res.minute;
+        bDom[3].innerText = res.second;
+    }
+    //因为定时器是一秒之后执行的，初始的时候会有页面初始加载效果数据，防止这种情况情况出现，页面加载时先进行一次计算调用
+    writeText();
+    //每一秒调用一次填充数据函数，间接调用getResult
+    setInterval(function(){
+        writeText();
+    }, 1000)
+</script>

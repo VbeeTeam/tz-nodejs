@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            1. arguments变量
+                每一个函数和方法中默认存在的一个伪数组，这个伪数组中存储了所有传入实参
+                arguments和数组不一样，只能够使用for循环来遍历，不能够使用forEach循环来遍历
+                通常用来处理位置个数参数的问题
+            2. 变量的作用域
+                js中作用域分为全局作用域和函数级作用域。ps：js在ES6之前是没有块级作用域(一对大括号就是一个块级作用域)
+                作用域链：
+                    js中可以在函数中定义函数，也就是说函数可以嵌套定义
+                    在函数的嵌套定义中，内层函数可以直接引用到外层函数的变量，但优先使用内层函数中定义的变量
+            3. js的预解析机制
+                js是有浏览器中的js解析器来执行的，解析器执行js代码会分为两个过程：1. 预解析过程  2. 代码执行过程
+                预解析过程会 
+                    1. 会把用var定义的变量的变量声明提升到当前作用域的最前面，只会提升声明，不会提升赋值
+                    2. 会把用function定义的函数的函数声明提升到当前作用域的最前面，只会提升声明，不会提升调用。
+                    3. 先提升var，再提升function
+            4. 对象
+                对象是什么：对象是一个具体的能够看得见，摸得着，能够描述清楚的个体事物
+                字面量形式创建对象
+                    var person = {name:"张三",age:16}
+                new Object()创建对象
+                    var person = new Object();通过.表示法来给对象添加属性（对象本身没有属性，点就有了）
+                自定义构造函数创建对象
+                    function Person(name,age){
+                        this.name = name;
+                        this.age = age;
+                        this.show = function(){
+                        }
+                    }
+                    var person = new Person();
+                new关键字
+                    new在执行的时候，做的4件事
+                    1. new会在内存申请一块空间，并创建一个新的空对象
+                    2. 把this指向这个空对象
+                    3. 执行构造函数（给相应的属性赋值）
+                    4. 将this返回给构造方法
+            5. 内置对象
+                Math对象
+                Date对象
+
+            6. 函数也是一种数据类型
+                函数可以作为参数(高级技巧) (回调函数)
+                函数可以作为返回值
+                function fn1(b){
+                    var a = 20;
+                    var fn2 = function (){
+                        console.log(a+b);
+                    }
+                    return fn2;
+                }
+                // var num1 = fn1(25);
+                // num1();
+                fn1(25)();
+        */
+
+    </script>
+</body>
+</html>

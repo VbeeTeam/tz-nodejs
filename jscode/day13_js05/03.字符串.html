@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        1. 字符串的不可变性
+        var str = "hello";
+        str = "你好";
+        以上代码的过程：
+            1. 创建一个"hello"字符串的对象，赋值给str这个变量
+            2. 创建一个"你好"字符串的对象，重新赋值给str这个变量
+            本质上改变的是str存储的对象的引用地址，两个字符串对象的值并没有被改变
+            var str = "this is a good boy"
+            str[2]  = "l"; // 利用下标的方式更改字符串中的某一个值，但原始的字符串不会被改变
+            console.log(str);
+        
+        2. 字符串本质上是有字符数组构成的，字符串也有length属性，也可以通过下标来访问字符串中的每一个字符
+            var str = "this is a good boy"
+            console.log(str.length);
+            console.log(str[2]);
+        
+        3. 字符串常用方法
+            
+
+        案例：
+        1. 查找某个字符出现的次数
+            var start = 0;
+            while(start!=-1){
+                if(start == 0){
+                    start = -1;
+                }
+                start = text.indexOf("b",start+1);
+                console.log(start);
+                
+            }
+        2. 判断一个字符串中出现次数最多的字符，并统计其次数
+            var word = {};
+            for(var i=0;i<text.length;i++){
+                if(!word[text[i]]){
+                    word[text[i]] = 0; 
+                }
+                word[text[i]] += 1;
+            }
+            console.log(word);
+        */
+        var str = "this is a good boy";
+        // console.log(str.indexOf("is",3)); // 查找字符串所在的位置，如果找不到则返回-1
+        // console.log(str.charAt(5)); // 返回指定位置的字符
+        // console.log(str.charCodeAt(5)); // 返回指定位置字符的ascii码
+        // console.log(str.concat("!!!!","你好")) // 拼接字符串
+        console.log(str.substr(3,4));// 截取字符串，从指定位置，截取多少位字符串
+        console.log(str.substring(3,10)); // 截取字符串，从指定位置开始，到指定位置结束
+        console.log(str.slice(3,10)); // 截取字符串，从指定位置开始，到指定位置结束
+        console.log(str.replace("is","zz"));// 替换字符
+        console.log(str.split(" "));// 以某一个字符为分隔符，将字符串转换为数组
+        
+    </script>
+</body>
+</html>

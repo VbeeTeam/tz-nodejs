@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 在其他语言中，{}表示为块级作用域，大括号中的变量在外部不能够使用
+         * js中使用var定义的变量都保存在window对象中
+         * 如果多个人同时在window对象中存储属性，那么就会导致变量冲突
+         * 这种操作叫做污染全局作用域
+         *  for(name in window){
+                console.log(name);
+            }
+         * 所以，一般来说，变量都需要定义在函数中
+         * js中只有两种作用域
+         *      1. 全局作用域(尽量不在这里定义变量)
+         *      2. 函数级作用域(通常会在函数中定义变量)
+                function fn(){
+                    var num = 1000;
+                }
+                fn();
+                console.log(num);
+                函数中定义的变量不能再函数外部使用
+
+         * 如何避免污染全局作用域
+         * 利用自执行函数，将所有的代码写在自执行函数中，避免污染全局作用域
+            ;(function(){
+                function fn1(){
+                    console.log("函数中的函数");
+                }
+                fn1();
+            })();
+            自执行函数上一句代码必须使用分号(;)结尾，为避免上一句代码忘记分号(;)结尾，所有在自执行函数前加一个分号(;)
+
+         * 预解析
+         JavaScript代码是由浏览器中的JavaScript解析器来执行的。
+         JavaScript解析器在运行JavaScript代码的时候分为两步：
+            预解析过程和代码执行过程。
+            js预解析机制会在当前作用域下将var定义的变量和function定义的函数提前声明
+            对于var会将变量声明提前，但变量赋值留在原地
+            对于function，会将整个函数体提前到第一行直接声明，会把函数调用留在原地
+        */
+        // function f1() {
+        //     var a = b = c = 9;
+        //     /*
+        //         var a = 9;
+        //         b = 9;
+        //         c = 9;
+        //     */
+        //     console.log(a);
+        //     console.log(b);
+        //     console.log(c);
+        // }
+        // console.log(c);
+        // console.log(b);
+        // console.log(a);
+        // 1、-----------------------------------
+var num = 10;
+fun();
+function fun() {
+  console.log(num);
+  var num = 20;
+}
+//2、-----------------------------------
+var a = 18;
+f1();
+function f1() {
+  var b = 9;
+  console.log(a);
+  console.log(b);
+  var a = '123';
+}
+// 3、-----------------------------------
+f1();
+console.log(c);
+console.log(b);
+console.log(a);
+function f1() {
+  var a = b = c = 9;
+  console.log(a);
+  console.log(b);
+  console.log(c);
+}
+// 4、------------------------------------
+function fn1(){
+    console.log(1111);
+}
+
+function fn1(){
+    console.log(2222);
+}
+fn1();
+// 5、-------------------------------------
+var num = 100;
+function fn1(){
+    var num;
+    console.log(num);
+    num = 10;
+}
+fn1();
+       
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兼容事件</title>
+</head>
+<body>
+    <button>点击</button>
+</body>
+</html>
+<script>
+    var btnDom = document.getElementsByTagName("button");
+    console.log("btnDom:", btnDom);
+    //兼容函数 可以兼容IE低版本6、7、8，IE9以后以及谷歌
+    function addEvent(element, eventName, fun){
+        //如果浏览器可以识别addEventListener()方法就使用addEventListener()
+        if(element.addEventListener){
+            element.addEventListener(eventName, fun);
+        //如果浏览器可以识别attachEvent()方法就使用attachEvent()
+        }else if(element.attachEvent){
+            element.attachEvent("on" + eventName, fun);
+        }else{
+        //如果浏览器不能识别以上两种方法，那么就使用传统的注册方式
+            element["on" + eventName] = fun;
+        }
+    }
+    //事件处理函数
+    function test(){
+        console.log("IE9以后及IE9以前");
+    }
+    function test2(){
+        console.log("划过事件");
+    }
+    addEvent(btnDom[0], 'click', test);
+    addEvent(btnDom[0], "mouseover", test2);
+
+</script>

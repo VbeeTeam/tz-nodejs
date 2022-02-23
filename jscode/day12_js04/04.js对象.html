@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        1. 什么是对象
+        万物接对象，对象是任何一个物体，是一个看得见，摸得着，能够描述清楚的物体，它具有一些特征和行为，
+        车是一类事物的总称，琛哥自己的那台车才是一个对象
+        
+        js中的对象是现实生活中一个对象的抽象
+        js中的车对象是用抽象的数据来描述车的信息，比如：车的宽度，高度，长度，重量，颜色，车的行为
+
+        对象是由属性和方法构成
+        属性 -- 对象的一些特性，主要为名词
+        方法 -- 对象的一些行为，主要为动词
+
+        描述人类对象
+            姓名
+            性别
+            年龄
+            身高
+            体重
+            
+        创建对象
+        创建对象使用{}括起来一些键值对，属性与值之间使用:分隔，属性与属性之间使用,分隔
+        var person = {
+            name:"guo",
+            sex:"nan",
+            age:21,
+            height:1.86,
+            weight:62,
+            sayHi: function(){
+                console.log(this.name);
+            }
+        }
+        调用对象的属性或方法可以使用【对象.属性名】或【对象名["属性名"]】来调用
+        console.log(person.sex);
+        console.log(person["sex"]);
+        person.sayHi();
+        person["sayHi"]()
+
+        * 创建对象的三种方式
+            1)字面量形式创建
+            字面量形式创建的对象都是Object类的对象
+
+            js是一种动态类型的语言，对象本身没有的属性，只要通过.属性名赋值，可以直接在对象上添加属性
+            2) new Object()创建对象
+            var student = new Object();
+            student.name = "张无忌"
+            student.sex  = "男"
+            student.age = 24
+            student.height = 1.68
+            student.weight = 58
+            student.sayHi = function(){
+                console.log("hello,gay");
+            }
+            console.dir(student);
+                2.1)这种专门方法叫做工厂方法
+                function createStu(name,sex,age,height,weight){
+                    var student = new Object();
+                    student.name = name
+                    student.sex  = sex
+                    student.age = age
+                    student.height = height
+                    student.weight = weight
+                    student.sayHi = function(){
+                        console.log("hello,gay");
+                    }
+                    return student;
+                }
+                var stu1 = createStu("刘玄德","男",48,1.88,86);
+                var stu2 = createStu("孙尚香","女",18,1.62,49);
+            // 3)利用自定义构造函数来创建对象
+            // 先创建一个自定义的构造函数，函数名的首字母大写，构造函数通过new来调用
+            function Person(name,sex,age,height,weight){
+                this.name = name
+                this.sex  = sex
+                this.age = age
+                this.height = height
+                this.weight = weight
+                this.sayHi = function(){
+                    console.log("hello,gay");
+                }
+            }
+            // 通过new 构造函数()的方式来创建对象
+            var per = new Person("周公瑾","男",18,1.92,67)
+            console.dir(per);
+
+            * this是每一个函数或方法都有的一个默认对象，通常this指的是调用这个方法的对象
+            JavaScript中的this指向问题，有时候会让人难以捉摸，随着学习的深入，我们可以逐渐了解
+            现在我们需要掌握函数内部的this几个特点
+                1. 函数在定义的时候this是不确定的，只有在调用的时候才可以确定
+                2. 一般函数直接执行，内部this指向全局window
+                3. 函数作为一个对象的方法，被该对象所调用，那么this指向的是该对象
+                4. 构造函数中的this其实是一个隐式对象，类似一个初始化的模型，所有方法和属性都挂载到了这个隐式对象身上，后续通过new关键字来调用，从而实现实例化
+
+            ******一般写代码的过程中，先要确定this到底指向哪一个对象
+
+            * new 关键字在执行的时候会做四件事
+                1. new会在内存中申请一块新的空间，并创建一个新的空对象
+                2. new让this这个变量指向这个新的对象
+                3. 执行构造函数，目的：给新对象初始化数据(添加属性和方法)
+                4. new会返回这个新对象
+
+            对象的使用
+                1. 遍历对象
+                    // 通过for...in语句可以用来遍历对象，遍历对象的所有key
+                    // 如果需要遍历出对象的属性值，需要使用到【对象名["属性名"]】的方式来获取
+                    for(var key in per){
+                        console.log(key, typeof per[key]);
+                    }
+                2. 删除对象中的属性
+                    // 通过new 构造函数()的方式来创建对象
+                    var per = new Person("周公瑾","男",18,1.92,67)
+                    console.log(per);
+                    delete per.weight;
+                    console.log(per);
+        */
+
+
+
+        // var person = {
+        //     name:"guo",
+        //     sex:"nan",
+        //     age:21,
+        //     height:1.86,
+        //     weight:62,
+        //     sayHi: function(){
+        //         console.log(this.name);
+        //     }
+        // }
+        // person.color = "yellow"
+        // console.dir(person);
+
+        // 使用Object类来创建对象
+        // var student = new Object();
+        // student.name = "张无忌"
+        // student.sex  = "男"
+        // student.age = 24
+        // student.height = 1.68
+        // student.weight = 58
+        // student.sayHi = function(){
+        //     console.log("hello,gay");
+        // }
+        // console.dir(student);
+
+        // 定义一个专门用来创建student对象的方法，通过传值的方式来创建对象
+        // 这种专门方法叫做工厂方法
+        function createStu(name,sex,age,height,weight){
+            var student = new Object();
+            student.name = name
+            student.sex  = sex
+            student.age = age
+            student.height = height
+            student.weight = weight
+            student.sayHi = function(){
+                console.log("hello,gay");
+            }
+            return student;
+        }
+        // var stu1 = createStu("刘玄德","男",48,1.88,86);
+        // var stu2 = createStu("孙尚香","女",18,1.62,49);
+        // console.dir(stu1);
+        // console.dir(stu2);
+        // 请创建学生对象，老师对象，英雄对象
+
+
+        // 3)利用自定义构造函数来创建对象
+        // 先创建一个自定义的构造函数，函数名的首字母大写，构造函数通过new来调用
+        function Person(name,sex,age,height,weight){
+            this.name = name
+            this.sex  = sex
+            this.age = age
+            this.height = height
+            this.weight = weight
+            this.sayHi = function(){
+                console.log("hello,gay");
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>

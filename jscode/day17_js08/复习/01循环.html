@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //双层for循环 外层循环执行一下，内层循环执行完所有循环，
+    //然后接外层循环执行一下，内层循环执行完所有循环，依次类推到外层执行的最大范围执行完结束
+    for(var i = 0; i < 5; i++){
+        console.log("i====", i);
+        for(var y = 1; y < 5; y++){
+            console.log("y====", y);
+        }
+    }
+    //while 执行顺序：
+    //1.先执行条件表达式，如果在范围之内（结果为true），接着往下执行，如果不在范围之内（结果为false），自动退出循环
+    //2.然后执行循环体代码
+    //3.注意：一定要有操作表达式，不写的话会形成死循环，一般用于写文件夹结构、树形支状图
+    var i = 0;
+    while(i < 5){
+        console.log("i===", i);
+        i ++;
+    }
+    //for循环和while循环的区别，for循环就是while循环的一个简化版，for循环可以做的，while都可以做
+    //一般来说while循环使用条件循环次数是在未知的情况下
+    //for循环使用是在循环次数已知的情况下，一般用于循环数组、循环字符串、循环对象
+
+
+    //do while执行顺序：
+    //1.先执行一次循环体
+    //2.再执行条件表达式，如果在范围之内（结果为true），则继续执行，如果在范围之外（结果为false），则退出循环
+    //一般用于不管条件是否成立，都会执行一次代码
+    var i = 0;
+    do{
+        i++;
+        console.log("我是do while循环里的", i);
+    }while(i < 0);
+    
+    // while和do while的区别
+    //1.while是先执行条件表达式，然后在执行循环体，如果条件不成立，代码一次都不会执行
+    //2.do while是先执行循环体，然后在执行条件表达式，不管条件是否成立，都会先执行一次循环体
+
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+</head>
+<body>
+    <ul>
+        <!-- li*5{列表$} -->
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+    </ul>
+</body>
+</html>
+<script>
+    // 事件委托是什么？ 简单的来说就是把事情委托给别人，让别人去做（事件冒泡和捕获本身的特性就叫事件委托）
+    //原理：给元素注册事件，利用事件的冒泡或捕获特性，进行处理
+    //（当子元素冒泡时，会冒泡到父元素，影响父元素的事件，当父元素捕获时，会捕获到子元素，影响子元素的事件）
+    //有好处也有坏处,坏处：影响其他元素；好处：事件委托,自身少做很多事情
+    //需求：点击当前列表让当前点击的列表变为红色
+    var ulDom = document.querySelector("ul");
+    var liDom = ulDom.children;
+    console.log(liDom);
+    // for(var i = 0; i < liDom.length; i++){
+    //     liDom[i].index = i;
+    //     liDom[i].onclick = function(){
+    //         for(var y = 0; y < liDom.length; y++){
+    //             liDom[y].style.backgroundColor = "#fff";
+    //         }
+    //         // liDom[this.index].style.backgroundColor = "#fff";
+    //         this.style.backgroundColor = "red";
+    //     }
+    // }
+    ulDom.onclick = function(event){
+        var e = event || window.event;
+        console.log(e.target);
+        console.log("children", this.children);
+        for(var i = 0; i < liDom.length; i++){
+            liDom[i].style.backgroundColor = "#fff";
+        }
+        e.target.style.backgroundColor = "red";
+    }
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <button>点击</button>
+</body>
+</html>
+<script>
+    // document.onclick = function(e){
+    //     //可视窗口的X、Y轴坐标
+    //     console.log(e.clientX);
+    //     console.log(e.clientY);
+    //     console.log("可视窗口----------------")
+    //     //鼠标在页面（文档）上的X、Y轴坐标
+    //     console.log(e.pageX);
+    //     console.log(e.pageY);
+    //     console.log("页面（文档）----------------")
+    //     //鼠标在电脑屏幕上的X、Y轴坐标
+    //     console.log(e.screenX);
+    //     console.log(e.screenY);
+    //     console.log("电脑屏幕----------------")
+    // }
+    var btnDom = document.querySelector("button");
+    btnDom.onclick = function(e){
+        console.log(e)
+        // offsetX获取鼠标在自身元素上点的的x，y坐标
+        console.log(e.offsetX);
+        console.log(e.offsetY);
+    }
+
+</script>

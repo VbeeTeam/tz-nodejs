@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素、节点</title>
+</head>
+<body>
+    <form action="">
+        <label for="">登录</label><input type="text" placeholder="登录"/><br />
+        <label for="">密码</label><input type="text" /><br />
+        <input type="submit" value="提交"/>
+    </form>
+</body>
+</html>
+<script>
+
+    var formDom = document.querySelector("form");
+    console.log("formDom", formDom);
+    //节点：包含元素element、文本（空格、换行）
+    //元素：只包含标签元素
+    console.log("子节点：", formDom.childNodes);
+    console.log("元素:", formDom.children);
+    //获取第一个子节点或元素
+    console.log("第一个子节点：",formDom.firstChild);
+    console.log("第一个子元素：",formDom.firstElementChild);
+    //获取最后一个子节点或元素
+    console.log("最后一个子节点：", formDom.lastChild);
+    console.log("最后一个子元素:", formDom.lastElementChild);
+    //获取下一个兄弟元素
+    var firstDom = formDom.firstElementChild;
+    console.log("下一个兄弟元素：", firstDom.nextElementSibling);
+    //获取上一个兄弟元素
+    var lastDom = formDom.lastElementChild;
+    console.log("上一个兄弟元素", lastDom.previousElementSibling);
+    //获取父元素、父节点
+    console.log("父节点", formDom.parentNode);
+    console.log("父元素", formDom.parentElement);
+
+</script>

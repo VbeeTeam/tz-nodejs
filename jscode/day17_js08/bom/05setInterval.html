@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>开始计时</button>
+    <button>关闭闹钟</button>
+</body>
+</html>
+<script>
+
+    //window.setInterval(调用的函数，延时的时间（ms）) 定时器 触发后每隔一段时间执行一次 =》定的闹钟
+    //第二个参数不写，默认为0
+
+    // setInterval(function(){
+    //     console.log("继续执行")
+    // }, 5000)
+    var myTimer = null;
+    var count = 0; //计闹钟响的次数
+    var btnDom = document.getElementsByTagName("button");
+    btnDom[0].onclick = function(){
+       myTimer = setInterval(function(){
+            //count = count + 1;
+            // count ++;
+            count += 1;
+        
+            alert("闹钟响了，该起床了！次数=" + count);
+        },5000)
+    }
+    //清空定时器
+    btnDom[1].onclick = function(){
+        clearInterval(myTimer);
+    }
+
+</script>

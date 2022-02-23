@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器</title>
+</head>
+<body>
+    <button>开始准备爆破</button>
+    <button>停止爆破</button>
+</body>
+</html>
+<script>
+
+    //window.setTimeout(调用的函数，延时的时间（ms）) 延时器  触发后只执行一次    =》定时炸弹
+    //setTimeout是有返回值的，是一个整数，可以通过这个整数作为延时器的标识，用于停止延时器的操作
+    //window.setInterval(调用的函数，延时的时间（ms）) 定时器 触发后每隔一段时间执行一次 =》定的闹钟
+    
+    //这个回调函数是一个匿名函数
+    // setTimeout(function(){
+    //     console.log("时间到了");
+    // }, 2000)
+    //这个回调函数是一个有名函数
+    function test(){
+        console.log("炸弹爆炸了");
+    }
+    var myTimer = null;
+    var btnDom = document.querySelectorAll("button");
+    btnDom[0].onclick = function(){
+       myTimer = setTimeout(test);
+       console.log(myTimer);
+    }
+    btnDom[1].onclick = function(){
+        window.clearTimeout(myTimer);
+    }
+
+
+</script>

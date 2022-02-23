@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var value = prompt("请输入一个值：");
+        // console.log(parseInt(value));
+        // console.log(Number(value));
+        // console.log(-value);
+
+
+        console.log("*************************");
+        /*所有的值都能转换为boolean，但只有6个值才能转换为false，其他都转换为true*/
+        console.log(Boolean(0));  // 0 false
+        console.log(Boolean("")); // 空字符串
+        console.log(Boolean(false));
+        console.log(Boolean(undefined));
+        console.log(Boolean(null));
+        console.log(Boolean(NaN));
+        
+        var value = prompt("请输入一个值：");
+        // if(value){
+        //     console.log("是");
+        // }else{
+        //     console.log("否");
+        // }
+        value?console.log("有值"):console.log("无值");;
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象</title>
+</head>
+<body>
+    <button id="btn">事件的触发</button>
+</body>
+</html>
+<script>
+
+    //什么是事件对象？
+    // 事件触发后，会跟着形成一些事件相关的信息及元数据信息的集合都在这个对象里，这个对象就是事件对象
+
+    // var btnDom = document.querySelector("button");
+    var btnDom = document.getElementById("btn");
+    btnDom.onmouseover = function(e){
+        // 一般喜欢写成 e event evt
+        // console.log(window.event);
+        // window.event.target.style.color = "red";
+        var evt = e || window.event;
+        console.log(evt);
+        // e.srcElement.style.color = "red";
+        var target = evt.target || evt.srcElement;
+        target.style.color = "red";
+        // target:点击的当前真正的事件源
+        //1.event就是一个事件对象，作为我们事件处理函数中的默认参数可以为event、e、evt
+        //2.只有事件存在了，才会有这个事件对象，它是系统官方默认给我们创建的对象，不需要我们给它传实参
+        //3.事件对象就是事件触发后一系列元数据的集合，里面包含了很多鼠标相关的信息，比如点击的x,y轴的坐标还有事件名称
+        //4.事件对象也存在兼容问题，低版本的IE不能直接识别event对象，可以通过 var evt = e || window.event
+        console.log(evt.type);
+    }
+
+
+</script>

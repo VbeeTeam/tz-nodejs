@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        js中如何获取随机数
+        Math.random();可以用来生成0-1之间随机数
+
+        如何获取一个0-100之间的随机数
+        Math.random()*100
+
+        Math.ceil(num)进一法
+        Math.floor(num)去尾法
+        Math.round(num)四舍五入法
+        获取0-99之间的随机数：Math.floor(Math.random()*100)
+        获取1-100之间的随机数：Math.ceil(Math.random()*100)
+        获取0-100之间的随机数：Math.round(Math.random()*100)
+        */
+        // console.log(Math.round(Math.random()*100));
+
+        /*
+            某一家商店，为回馈客户，让客户随机生成1个4位数，当随机生成的四位数每一位相加大于30，则送出奖励。
+        */
+    //    var card = Math.floor(Math.random()*9000+1000)
+
+    //    var gewei = Math.floor(card / 1) % 10
+    //    var shiwei = Math.floor(card / 10) % 10
+    //    var baiwei = Math.floor(card / 100) % 10
+    //    var qianwei = Math.floor(card / 1000) % 10
+    //    var num = gewei + shiwei + baiwei  + qianwei;
+    //    console.log(card,num);
+        // 生成二十个4为随机数
+        // console.log(Math.floor(Math.random()*9000+1000));
+        /*
+            循环有两种，for循环和while循环
+            if(条件判断){
+                执行语句
+            }
+            while(条件判断){
+                执行语句
+            }
+
+            循环有四个条件 1. 初始条件 2. 结束条件 3.执行语句 4.迭代条件
+        */
+        // 在控制台中输出二十个位为随机数
+        // var i = 0; // 初始条件
+        // while(i<20){ // 结束条件
+        //     console.log(Math.floor(Math.random()*9000+1000)); // 执行语句
+        //     i++; // 迭代条件
+        // }
+        // 循环输入某个班5个学生的成绩，计算5个学生的总成绩以及平均值
+        var i = 1;
+        var sum = 0;
+        while(i<=5){
+            var score = parseInt(prompt(`请输入第${i}个学生的成绩：`));
+            sum += score;
+            i++;
+        }
+        console.log(`5位同学的总成绩为：${sum}；平均成绩为：${sum/5}` );
+    </script>
+</body>
+</html>

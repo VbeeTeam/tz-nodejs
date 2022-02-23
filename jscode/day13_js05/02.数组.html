@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        1. 数组的创建
+            字面量形式
+            new Array()
+        2. 数组的检测
+            检测某个变量是否为数组，不能够使用typeof，tpyeof检测数组出来的结果为object
+            * 使用instanceof来检测是否为数组
+            * 使用Array.isArray(nums)来检测是否为数组(HTML5提供的)
+        3. 数组中的常用方法
+            toString(); 把数组转化成字符串，用逗号分隔
+            valueOf(); 返回数组对象本身
+
+            console.log(nums.push(70)); // 末尾插入
+            console.log(nums.pop()); // 末尾删除
+            console.log(nums.unshift(0)); // 开头插入
+            console.log(nums.shift());  //开头删除
+            console.log(nums.sort()); // 数组排序，默认升序
+            降序排序 sort默认是升序，传入参数，可以设置为降序排列
+            nums.sort(function(a,b){return a>b?1:-1})
+            nums.reverse() // 数组反转
+            console.log(nums.indexOf(50)); // 获得数组中元素的位置，如果数组中没有该元素，则返回-1
+            console.log(nums.join()); // 将数组转换为字符串，并以特定符号连接
+            console.log(nums.concat([300,500,400,900])); // 拼接数组，返回一个新数组
+            console.log(nums.slice(2,4)); // 截取数组，从start开始，到end结束，不包括end
+            nums.splice(start,count) // 删除数组中指定元素，从第start个开始，删除count个
+        4. 数组迭代的方法
+            forEach(function(item){
+               
+            })
+            filter()方法会过滤到不想要的元素，生成一个新的数组
+            var newArr = arr.filter(function(item){
+                return item>20;
+            })
+            map()方法会对每一个元素进行操作，然后返回给一个新的数组
+            var newArr = nums.map(function(item){
+                return item+100;
+            })
+
+        ps. js中的手动抛出错误
+            throw Error("arr is not Array");
+            什么时候该抛出错误：程序员觉得这个时候要抛出错误，可以抛出错误，一般来说，错误都是团队约定好的
+            错误会导致js代码异常退出，所以需要捕获错误，处理错误
+                try{
+                    throw Error("arr is not Array");
+                }catch(e){
+                    console.error(e);
+                }
+            反转数组案例：判断传入的参数是否为数组，如果不是数组，则抛出错误，并处理错误，确保代码不异常退出
+            function reverse(arr){
+                console.log(!(arr instanceof Array));
+                if(!(arr instanceof Array)){
+                    try{
+                        throw Error("arr is not Array");
+                    }catch(e){
+                        console.error(e);
+                    }
+                }
+                var len = parseInt(arr.length/2)
+                for(var i=0;i<len;i++){
+                    [arr[i],arr[arr.length-1-i]] = [arr[arr.length-1-i],arr[i]]
+                }
+            }
+            reverse("10")
+            console.log(nums);
+        */
+        var nums = [20,60,40,50,10,30]
+        console.log(nums.toString());
+
+
+        // 数组去重
+        // var str =  ['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b'];
+        // var newStr = [];
+        // for(var i=0;i<str.length;i++){
+        //     if(newStr.indexOf(str[i]) === -1){
+        //         newStr.push(str[i])
+        //     }
+        // }
+        // console.log(newStr);
+
+        // var newArr = nums.filter(function(item){
+        //     return item>20;
+        // })
+        // console.log(newArr);
+
+        // 数组中每一个元素都+100
+        console.log(nums.valueOf());
+    </script>
+</body>
+</html>

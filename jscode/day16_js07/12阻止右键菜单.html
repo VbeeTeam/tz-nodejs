@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止右键菜单</title>
+</head>
+<body>
+    <p>我是一段不想被被人复制的一段话</p>
+</body>
+</html>
+<script>
+
+    // document.contextmenu = function(e){
+    //     e.preventDefault();
+    // }
+    //监听注册事件阻止右键菜单 contextmenu：上下文菜单
+    document.addEventListener("contextmenu", function(e){
+        e.preventDefault();
+    })
+    //监听注册事件阻止鼠标选中 selectstart：鼠标开始选中
+    document.addEventListener("selectstart", function(e){
+        e.preventDefault();
+    })
+
+</script>

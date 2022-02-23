@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+    //全局作用域 在其他函数内部都可以访问到的变量，叫做全局变量,即全局作用域
+    {
+        var num = 1;
+
+        (function test1() {
+            console.log("test1:", num);
+        })();
+        (function test2() {
+            console.log("test2:", num);
+        })();
+    }
+    (function test3(){
+        console.log("test3:", num)
+    })();
+
+    //局部作用域 在函数内部定义的变量在函数外部不可以访问到的变量，叫做局部变量，即局部作用域
+    (function test4(){
+        var num2 = 2;
+        console.log("test4:", num2);
+    })();
+    // console.log("num2",num2);
+
+    //作用域链： js中可以在函数内部定义函数，也就是嵌套函数，也就是闭包函数
+    //在定义的函数中，内层函数可以直接访问外层函数的变量,但优先使用内层函数定义的变量，采取的是就近原则
+    function test5(){
+        var num3 = 3;
+        function test6(){
+            num3 = 4;
+            console.log("num3:",num3);
+        }
+        test6();
+    }
+    test5();
+    // 闭包函数：让变量的值始终保存在函数的内存中，不会被全局变量所污染
+    // 缺点：因为变量始终保持在内存中，过多的话会造成内存泄露，在退出函数时，可以清空变量，变量 = null;
+
+
+</script>

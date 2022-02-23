@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .search{
+            margin: 100px;
+        }
+        .title{
+            width: 170px;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+        <div class="title"></div>
+        <input type="text" />
+    </div>
+</body>
+</html>
+<script>
+
+    //需求：当我们在文本框输入内容时，文本框上方的标题自动显示
+    //1.输入快递单号时，上方的title显示
+    //2.给文本框添加键盘事件，同时把文本框的值取到显示到标题里
+
+    var titDom = document.querySelector(".title");
+    var iptDom = document.querySelector("input");
+    // 使用键盘抬起事件，因为我们需要获取文本框的值，所以在键盘抬起时才能拿到
+    iptDom.onkeyup = function(){
+        //如果文本框的值不为空，显示标题并进行将文本框的值赋值到标题里
+        if(iptDom.value != ""){
+            titDom.style.display = "block";
+            titDom.innerText = this.value;
+        }else{
+            titDom.style.display = "none";
+        }
+    }
+    //光标离开文本框，隐藏标题
+    iptDom.onblur = function(){
+        titDom.style.display = "none";
+    }
+    //光标进入文本框，当内容不为空时，显示标题
+    iptDom.onfocus = function(){
+        if(this.value != ""){
+            titDom.style.display = "block";
+        }
+    }
+
+</script>

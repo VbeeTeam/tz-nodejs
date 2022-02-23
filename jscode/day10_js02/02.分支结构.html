@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            1. 基本的if语句
+            if(判断条件){
+                执行语句块(当执行语句块中只有一条语句的时候，可以省略大括号)
+            }
+            当判断条件为真的时候，进入if代码块执行其中的代码，条件为假的时候，直接跳出if代码块，执行if代码块后面的代码
+            2. if...else语句
+            if(判断条件){
+                执行语句块
+            }else{
+                执行语句块
+            }
+            ps: if语句块和else语句块中的逻辑是互斥的
+            3. 多重if语句
+            if (判断条件1) {
+               
+            } else if(判断条件2) {
+               
+            } else if(判断条件3){
+              
+            } else {
+                
+            }
+            多重if语句中的判断条件必须是互斥的
+        */
+        // 如果琛哥有10000，就买一台iphone13
+        // var money = parseInt(prompt("琛哥的资产数："));
+        // if(money>=10000)
+        //     console.log("琛哥要买iphone13");
+        // 如果琛哥有10000，就买一台iphone13，否则就买一台one plus
+        // var money = parseInt(prompt("琛哥的资产数："));
+        // if(money>= 10000)
+        //     console.log("琛哥要买iphone13")
+        // else
+        //     console.log("琛哥只能买一台one plus")
+
+        // 如果琛哥有10000，就买一台iphone13，
+        // 如果是6000以上，就买一台one plus
+        // 如果是3000以上，就买一台htc
+        // 如果连3000都没有，只能留着吃饭了
+        // var money = parseInt(prompt("琛哥的资产数："));
+        // if (money >= 10000) {
+        //     console.log("琛哥要买iphone13")
+        // } else if(money >= 6000) {
+        //     console.log("琛哥只能买一台one plus")
+        // } else if(money >= 3000){
+        //     console.log("只能买一台htc");
+        // } else {
+        //     console.log("买不了手机了，都没钱吃饭，要留着钱吃饭");
+        // }
+        // 期末考试成绩：90-100 为优秀 80-90为良好 70-80为中等 60-70为及格 其他为不及格
+
+        // 明天星期六，如果不下雨，就去爬山，如果下雨，就去图书馆看书
+        // var flag = prompt("明天是否下雨？")
+        // if(flag == "是"){
+        //     console.log("去图书馆看书");
+        // }else{
+        //     console.log("去爬山");
+        // }
+        // flag == "是"?console.log("去图书馆看书"):console.log("去爬山");
+        // 三元运算符只能够实现if...else...的语句，而且，代码块只能有1条
+
+        // var money = parseInt(prompt("琛哥的资产数："));
+        // var str = money >= 10000?"琛哥要买iphone13":money >= 6000?"琛哥只能买一台one plus":money >= 3000?只能买一台htc:"买不了手机了，都没钱吃饭，要留着钱吃饭";
+        // console.log(str);
+
+        /*
+            if比较条件判断语句比较适合于范围类的情况
+            如果条件判断语句是等值比较，则可以使用switch语句来实现
+            switch语句
+            switch(表达式){
+                case 常量1:
+                    执行语句;
+                    break;
+                case 常量2:
+                    执行语句;
+                    break;
+                case 常量3:
+                    执行语句;
+                    break;
+                case 常量4:
+                    执行语句;
+                    break;
+                default:
+                    执行语句;
+            }
+        */
+       //*** 韩梅梅参加XX杯英语口语大赛，第一名，奖励斯坦福大学夏令营一个月，第二名，奖励笔记本电脑一台，第三名，奖励高档note book一本，其他则奖励水杯一个
+        // var ranking = prompt("请输入名次：")
+        // if(ranking === "1"){
+        //     console.log("奖励斯坦福大学夏令营一个月"); 
+        // }else if(ranking === "2"){
+        //     console.log("奖励笔记本电脑一台"); 
+        // }else if(ranking === "3"){
+        //     console.log("奖励高档note book一本"); 
+        // }else{
+        //     console.log("奖励水杯一个");
+        // }
+        // switch(ranking){
+        //     case "1":console.log("奖励斯坦福大学夏令营一个月"); break;
+        //     case "2":console.log("奖励笔记本电脑一台"); break;
+        //     case "3":console.log("奖励高档note book一本");break;
+        //     default:console.log("奖励水杯一个");
+        // }
+
+        // 期末考试成绩：90-100 为优秀 80-90为良好 70-80为中等 60-70为及格 其他为不及格
+        // var score = prompt("请输入成绩：")
+        // switch (parseInt(score/10)) {
+        //     case 10:
+        //         console.log("优秀");
+        //         break;
+        //     case 9:
+        //         console.log("良好");
+        //         break;
+        //     case 8:
+        //         console.log("良好");
+        //         break;
+        //     case 7:
+        //         console.log("中等");
+        //         break;
+        //     case 6:
+        //         console.log("及格");
+        //         break;
+        //     default:
+        //         console.log("不及格");  
+        // }
+        
+        // 输入当前的星期数，星期一-星期五为上课，星期六是自习，星期天自由活动
+        // var week = prompt("今天星期几？")
+        // switch (week) {
+        //     case "一":
+        //     case "二":
+        //     case "三":
+        //     case "四":
+        //     case "五":
+        //         console.log("上课");
+        //         break; /*跳出switch*/
+        //     case "六":
+        //         console.log("自习");
+        //         break;
+        //     case "日":
+        //         console.log("自由活动");
+        //         break;
+        // }
+    </script>
+</body>
+
+</html>

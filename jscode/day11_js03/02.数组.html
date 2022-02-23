@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            计算某个班5个学生的总成绩和平均成绩，然后输入第三个学生的成绩 
+            如果要获得某一个学生的成绩，就需要把所有学生的成绩存储在不同的变量中
+            创建多个变量对于编程来说，不是很合适，那么可以把多个变量放在一个变量中，这个变量的类型就叫数组
+            本身应该创建5个变量名，使用数组的话，可以只创建一个变量，5个数值全部放在这个数组中，通过数组的规则来访问这5个值
+        */
+        // var sum = 0;
+        // for(var i=1;i<=5;i++){
+        //     var score = parseInt(prompt(`请输入第${i}个学生的成绩：`))
+        //     sum+=score;
+        // }
+
+        /*
+            一、js中有两种创建数组的方式
+            1. 通过new Array()的方式创建数组
+                var arr1 = new Array(); // 创建了一个长度为0的数组，不是空，而是一个空数组，仅仅说明里面没有数据
+                var arr2 = new Array(5); // 创建了一个长度为5的数组，数组中每一个元素的值为undefined
+                var arr3 = new Array(5,6,7,8);  // 创建了一个长度为4的数组，数组的元素分别为5,6,7,8
+                var arr4 = new Array("5");  // 创建了一个长度为1的数组，数组的元素为"5"
+                通过new Array()的方式创建数组的时候，小括号中只要不是单个数字，就是数组的元素
+            2. 通过[]字面量形式创建数组
+                var arr1 = [1]; // 创建了长度为1的数组，数组元素为1
+                var arr2 = [1,2,3,4]; // 创建了长度为4数组，数组元素分别为1,2,3,4
+            两种方式创建的数组效果是一样的。
+
+            数组的初值是undefined
+            二、数组可以存放的数据类型
+                一个数组中的值，可以是不同的数据类型
+                var arr1 = [1,"张三",16];
+                ps:数组中一般来说，所有的元素都会是相同数据类型
+            三、数组的长度 .length 
+            四、数组元素的获取、增加与删除
+                数组元素通过【数组名[下标]】来获取和设置数组中元素的值
+                数组的下标从0开始，到数组长度-1结束
+                当获取的下标超出数组长度时：不会报错，会返回undefined
+                
+                通过给指定下标的数组元素赋值，可以更改数组元素的值
+                如果要给数组新增值，可以直接使用下标赋值，而且可以跟任意下标赋值，同时会改变数组的长度
+
+                可以使用delete arr1[9]来删除数组中的指定下标位置的元素数据，不会改变数组的长度
+                使用arr1.splice(9,1)删除数组中指定下标的元素，会改变数组的长度
+                清空数组arr1.splice(0,arr1.length)
+            五、数组的遍历
+                遍历：把数组中每一个元素都过一遍
+                1. for循环遍历
+                var arr1 = ["嬴政","刘邦","项羽","白起","赵括"];
+                for(var i=0;i<arr1.length;i++){
+                    console.log(i,arr1[i]);
+                }
+                2. 增强型for循环遍历
+                arr1.forEach(function(v,i){
+                    console.log(i,v);
+                })
+            六、在数组的末尾新增元素
+                arr1[arr1.length] = "廉颇"
+                arr1.push("蔺相如")
+
+            七、数组的结构赋值(ES6)
+                var nums = [51,67,91,23,45,82,12];
+                var [a,b,c] = nums; // 解构赋值
+                等号左边的变量，按照数组的格式，用方括号括起来，可以直接从数组中相对应的位置取值特定的值
+
+                利用解构赋值实现双手换牌
+                var a = 16, b = 32;
+                [a,b] = [b,a];
+
+        */
+        // var arr1 = ["嬴政","刘邦","项羽","白起","赵括"];
+
+
+        // arr1.forEach(function(v,i){
+        //     console.log(i,v);
+        // })
+
+        // 某学校某年级共有5个班，每个班有5个学生，输入每个学生的成绩，并计算每个班的总成绩及平均成绩
+        
+        // 先处理一个班
+        // var score = new Array(3);
+        // score[0] = new Array(3);
+        // score[1] = new Array(3);
+        // score[2] = new Array(3);
+        // var score = [new Array(3),new Array(3),new Array(3)]
+        // for(var k=0;k<score.length;k++){
+        //     for(var i=0;i<score[k].length;i++){
+        //         score[k][i] = parseInt(prompt(`请输入第${i+1}个学生的成绩：`))
+        //     }
+        // }
+        // console.log(score);
+
+        // 求出数组中最大的元素
+        // var nums = [51,67,91,23,45,82,12];
+        // var max = nums[0];
+        // var min = nums[0];
+        // nums.forEach(function(value){
+        //     if(max<value){
+        //         max = value;
+        //     }
+        //     if(min>value){
+        //         min = value;
+        //     }
+        // })
+        // console.log(max);
+        // console.log(min);
+
+        // 将数组的元素按升序排列 冒泡排序
+        // var nums = [51,67,91,23,45,82,12];
+        // for(var i=0;i<nums.length-1;i++){
+        //     for(var j=0;j<nums.length-i-1;j++){
+        //         if(nums[j]>nums[j+1]){
+        //             var tmp  = nums[j];
+        //             nums[j] = nums[j+1];
+        //             nums[j+1] = tmp;
+        //         }
+        //     }
+        // }
+        // console.log(nums);
+
+        // 数组的解构赋值
+        // var nums = [51,67,91,23,45,82,12];
+        // var [a,b,c] = nums; // 解构赋值
+        // var a = 16, b = 32;
+        // console.log(a,b);
+        // [a,b] = [b,a];
+        // console.log(a,b);
+
+    </script>
+</body>
+</html>

@@ -1,7 +1,8 @@
 # 大纲-day01
 ## 初识Nodejs
 - JavaScript是什么？ 
-- JavaScript可以运行在哪里？ 
+- 做网页特效 DOM：操作网页元素  ECMAScript：JavaScript语法的规范 ES5 ES6 ES7 ....
+- JavaScript可以运行在哪里？ 浏览上
 
 ![](img/1.png)
 
@@ -25,7 +26,7 @@ Edge   | Chakra
     + 2012 退居幕后
 
 > Node.js 是一种建立在Google Chrome’s v8 engine上的 non-blocking (非阻塞）, event-driven （基于事件的） I/O平台. 
-Node.js平台使用的开发语言是JavaScript，平台提供了操作系统低层的API，方便做服务器端编程，具体包括文件操作、进程操作、通信操作等系统模块
+Node.js平台使用的开发语言是JavaScript，平台提供了操作系统底层的API，方便做服务器端编程，具体包括文件操作、进程操作、通信操作等系统模块
 
 ### 事件驱动
 
@@ -53,9 +54,10 @@ nodejs是单线程，异步I/O，事件驱动
 ## Node.js可以用来做什么？
 
 - 具有复杂逻辑的动态网站 
-- WebSocket服务器 
-- 命令行工具 
+- WebSocket服务器 即时聊天室
+- 命令行工具 cmd
 - 带有图形界面的本地应用程序 
+- 爬虫
 - ......
 
 ## 终端基本使用
@@ -64,7 +66,7 @@ nodejs是单线程，异步I/O，事件驱动
 
 - notepad 打开记事本
 - mspaint 打开画图
-- calc 打开计算机
+- calc 打开计算器
 - write 写字板
 - sysdm.cpl 打开环境变量设置窗口
 
@@ -78,6 +80,7 @@ nodejs是单线程，异步I/O，事件驱动
 - del 删除文件
 - cls 清屏
 - ctrl + c 结束操作
+- exit 关闭终端
 
 ## Node.js开发环境准备
 
@@ -108,8 +111,8 @@ nodejs是单线程，异步I/O，事件驱动
     
     npm install express -g      # -g是全局安装的意思
 ## Node.js之HelloWorld
-- 命令行方式
-- 运行文件方式
+- 命令行方式 
+- 运行文件方式  => node 文件名.js
 - 全局对象概览
 
 ## 服务器端模块化

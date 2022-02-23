@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">innerHTML</button>
+    <button id="btn2">innerText</button>
+    <button id="btn3">更改图片</button>
+    <div id="box">
+        你好，世界
+    </div>
+    <img src="../image/001.jpg" alt="">
+    <hr>
+    <input type="text" id="input" value=""> 
+    <button id="btn4">点我</button>
+    <div id="show_text"></div>
+    <script>
+        /*
+        js操作HTML元素
+        js操作元素内容(两个属性)，写入本文内容到标签中(是写入到开始标签和结束标签中)
+            .innerHTML
+            .innerText
+            innerHTML写入的文字内容会被浏览器渲染
+            innerText写入的文字内容不会被浏览器渲染
+
+            ps:单标签不能使用这两个属性
+        js操作元素的属性
+            在js中，可以通过对象.属性的方式给元素对象添加属性
+            input.aaa = "aaa" // 不能将属性写入到标签中
+            对象.属性的方式是给对象添加自定义属性
+
+            也可以通过setAttribute(k,v)的方式给标签添加属性
+            input.setAttribute("bbb","bbb") // 可以将属性写入到标签中
+            setAttribute是给标签添加自定义属性
+            只能通过getAttribute(k)的方式来获取
+            如果要删除标签的属性，可以使用removeAttribute(k)的方式来删除
+        */
+        document.querySelector("#btn1").onclick = function(){
+            var box = document.querySelector("#box");
+            box.innerHTML = "<h1>我还会   在回来的</h1>"
+        }
+        document.querySelector("#btn2").onclick = function(){
+            var box = document.querySelector("#box");
+            box.innerText = "<h1>你回来   了又怎样</h1>"
+        }
+        document.querySelector("#btn3").onclick = function(){
+            var img = document.querySelector("img");
+            img.src = "../image/005.jpg"
+        }
+        var  img = document.querySelector("img");
+        img.onmouseover = function(){
+            this.src = "../image/004.jpg"
+            this.width = "700"
+        }
+        img.onmouseout = function(){
+            this.src = "../image/001.jpg"
+            this.width = "600"
+        }
+        document.querySelector("#btn4").onclick=function(){
+            var input = document.querySelector("#input");
+            input.disabled = true
+            // 标签中有没有一个属性叫做aaa
+            // input.aaa = "aaa"
+            input.setAttribute("disabled" ,true)
+            input.bbb = "bbb"
+            input.setAttribute("aaa","aaa")
+            console.dir(input)
+        }
+        // 只要在输入框输入，就直接能显示，不要点击
+        var input = document.querySelector("#input");
+        console.dir(input);
+        input.onkeypress = function(){
+            document.querySelector("#show_text").innerHTML = this.value; 
+            var btn4 = document.querySelector("#btn4");
+            console.log(this.value.length);
+            if(this.value.trim()  === ""){
+                btn4.disabled = "disabled"
+            }else{
+                btn4.disabled = ""
+            }
+            
+
+        }
+        // input.onchange = function(){
+        //     document.querySelector("#show_text").innerHTML = this.value; 
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用的事件</title>
+</head>
+<body>
+    <button>划过</button>
+    <input type="text" />
+    <button>双击</button>
+</body>
+</html>
+<script>
+
+    var btnDom = document.getElementsByTagName("button");
+    //鼠标划过离开事件
+    btnDom[0].onmouseover = function(){
+        console.log("我被划过了")
+    }
+    btnDom[0].onmouseout = function(){
+        console.log("划过离开")
+    }
+    //文本框焦点进入与离开事件
+    var iptDom = document.getElementsByTagName("input");
+    iptDom[0].onfocus = function(){
+        console.log("光标进入")
+    }
+    iptDom[0].onblur = function(){
+        console.log("光标离开")
+    }
+    iptDom[0].oninput = function(){
+        console.log(this.value)
+    }
+    //鼠标移动就会触发的事件
+    document.onmousemove = function(){
+        // console.log("鼠标在移动")
+    }
+    //鼠标的抬起和按下
+    document.onmousedown = function(){
+        console.log("鼠标被按下")
+    }
+    document.onmouseup = function(){
+        console.log("鼠标被抬起")
+    }
+    //鼠标的双击事件
+    btnDom[1].ondblclick = function(){
+        alert("软件被打开了")
+    }
+</script>

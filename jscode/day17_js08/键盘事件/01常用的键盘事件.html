@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    // onkeydown 键盘按键按下时触发 =》能识别功能键比如上下左右箭头、ctrl、shift
+    // onkeyup 键盘按键抬起时触发
+    // onkeypress 键盘按下时触发 => 不能识别功能键比如上下左右箭头、ctrl、shift
+    // 执行顺序 onkeydown 》 onkeypress 》onkeyup
+    document.addEventListener("keyup", function(){
+        console.log("按键按下被抬起了-onkeyup")
+    })
+    document.onkeydown = function(){
+        console.log("键盘按键被按了-onkeydown")
+    }
+    document.addEventListener("keypress", function(){
+        console.log("键盘按键被按下了-onkeypress")
+    })
+</script>

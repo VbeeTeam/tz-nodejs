@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">来呀，点我啊</div>
+    <ul>
+        <li class="names">鸣人</li>
+        <li class="names">佐助</li>
+        <li class="names">大蛇丸</li>
+        <li class="names">卡卡西</li>
+        <li class="names">朽木露琪亚</li>
+    </ul>
+    <a href="">baidu</a>
+    <button>点我</button>
+    <button id="btn1">再点我</button>
+    <script>
+        /*
+        DOM的方法能够操作HTML文档(document)中的内容，但不能每次都直接操作整个文档
+        需要操作指定的某个元素
+        如果需要操作某个指定的元素，先要获取这个元素
+        DOM中获取元素对象的方法有很多
+            1. 通过ID来获取元素对象，如果没有获取到则返回null
+            document.getElementById("id名"); 
+            2. 通过元素名获取元素对象集合，获得的对象集合是一个伪数组，如果没有获取到则返回空集合
+            document.getElementsByTagName("标签名");
+            3. 通过class名获取元素对象集合
+            document.getElementsByClassName("names");
+            4. 通过选择器获取节点
+            document.querySelector("#div1");
+            5. 通过选择器获取节点集合
+            document.querySelectorAll(".names")
+        事件
+            事件的三要素
+                1. 事件源(哪个元素触发的事件)
+                2. 事件类型(通过什么方式触发的事件)
+                3. 事件处理程序(触发事件要干什么)
+            元素绑定函数1：
+            function fn(){
+                alert("大型暴力事件的产生是为何？")
+            }
+            <button onclick="fn()">点我</button>
+            元素绑定函数2：
+            var btn1 = document.querySelector("#btn1");
+            btn1.onclick = function(){
+                alert("点点更健康")
+            }
+        */
+        // var div1 = document.getElementById("div1");
+        // var lis = document.getElementsByTagName("li");
+        // var names = document.getElementsByClassName("names");
+        // var div = document.querySelector("#div1");
+        // var namess = document.querySelectorAll("ul>.names")
+        // var a = document.querySelector("[href]");
+        // console.log(namess);
+        
+        var btn1 = document.querySelector("#btn1");
+        btn1.onclick = function(){
+            alert("点点更健康")
+        }
+        console.dir(btn1);
+
+    </script>
+</body>
+</html>

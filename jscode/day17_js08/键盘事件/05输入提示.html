@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label>用户名：</label><input type="text" placeholder="请输入用户名" /><br/>
+        <p></p>
+    </form>
+</body>
+</html>
+<script>
+    //需求：检测我们输入的值是数字、字母
+    //获取dom
+    var userDom = document.querySelectorAll("input")[0];
+    var pDom = document.querySelector("p");
+    userDom.onkeyup = function(event){
+        var e = event || window.event;
+        console.log(this.value);
+        if(e.keyCode >= 65 && e.keyCode <=90){
+            console.log("您输入的是字母")
+        }else if(e.keyCode >= 48 && e.keyCode <=57){
+            console.log("您输入的是数字")
+        }else{
+            console.log("您胡输入呢")
+            pDom.innerText = "请输入正确的用户名"
+            pDom.style.color = "red";
+        }
+    }
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="请输入搜索内容" />
+</body>
+</html>
+<script>
+    // 需求：按下S键光标自动进入搜索框（文本框获得焦点）
+
+    //1.判断用户是否按了字母S键，如果按下了，就把光标定位到搜索框
+    //2.使用键盘keyCode判断用户是否按了S键 83
+    //3.让文本框获得焦点
+
+    // 获取操作的dom元素
+    var iptDom = document.querySelector("input");
+    document.onkeydown = function(event){
+        var e = event || window.event;
+        if(e.keyCode == 83){
+            iptDom.focus();
+        }
+    }
+
+
+</script>
