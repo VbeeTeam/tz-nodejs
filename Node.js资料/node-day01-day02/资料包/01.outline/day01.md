@@ -113,9 +113,9 @@ nodejs是单线程，异步I/O，事件驱动
 ## Node.js之HelloWorld
 - 命令行方式 
 - 运行文件方式  => node 文件名.js
-- 全局对象概览
+- 全局对象概览 js=>window node=>global
 
-## 服务器端模块化
+## 服务器端模块化 
 
 - 服务器端模块化规范CommonJS与实现Node.js
 - 模块导出与引入

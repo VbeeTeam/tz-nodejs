@@ -4,13 +4,8 @@
 const http = require('http');
 const url = require('url');
 const querystring = require('querystring');
-const ss = require('./06.js');
 
 http.createServer((req,res)=>{
-    // 启动静态资源服务
-    if(req.url.startsWith('/www')){
-        ss.staticServer(req,res,__dirname);
-    }
     console.log(req.url);
     // 动态资源
     if(req.url.startsWith('/login')){

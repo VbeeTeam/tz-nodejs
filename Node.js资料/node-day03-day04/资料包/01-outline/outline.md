@@ -1,22 +1,4 @@
 # 大纲-day02
-## Buffer基本操作
-> Buffer对象是Node处理二进制数据的一个接口。它是Node原生提供的全局对象，可以直接使用，不需要require(‘buffer’)。
-
-- 实例化
-    + Buffer.from(array)
-    + Buffer.from(string)
-    + Buffer.alloc(size)
-- 功能方法
-    + Buffer.isEncoding() 判断是否支持该编码
-    + Buffer.isBuffer() 判断是否为Buffer
-    + Buffer.byteLength() 返回指定编码的字节长度，默认utf8
-    + Buffer.concat() 将一组Buffer对象合并为一个Buffer对象
-- 实例方法
-    + write() 向buffer对象中写入内容
-    + slice() 截取新的buffer对象
-    + toString() 把buf对象转成字符串
-    + toJson() 把buf对象转成json形式的字符串
-
 ## 核心模块API
 ### 路径操作
 - 路径基本操作API
