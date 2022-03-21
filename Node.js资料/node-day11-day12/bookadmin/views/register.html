@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="login">
+        <h3>图书管理注册</h3>
+        <form action="http://127.0.0.1:3001/registerUser" method="POST">
+            <label>用户名：</label><input type="text" name="username" placeholder="请输入用户名"/><br /><br /><br />
+            <label>密码：</label><input type="password" name="password" placeholder="请输入密码"/><br /><br />
+            <input type="submit" value="注册" />
+            {{if flag == 1}}
+                <p style="color: red;">当前用户名已经注册了</p>
+                {{else if flag == 2}}
+                <p style="color: red;">请输入用户名或密码</p>
+            {{/if}}
+        </form>
+    </div>
+</body>
+</html>

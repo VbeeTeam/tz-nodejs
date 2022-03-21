@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.add{
+    width: 400px;
+    padding: 20px;
+    background-color: chocolate;
+    border-radius: 10px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.add h3{
+    margin-bottom: 20px;
+    color:#fff;
+}
+.add label{
+    color: #fff;
+}
+.add form input{
+    border: none;
+    outline: none;
+    padding: 6px 8px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.edit{
+    background-color: deepskyblue;
+}

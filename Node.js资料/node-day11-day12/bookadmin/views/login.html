@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="login">
+        <h3>图书管理登录</h3>
+        <form action="http://127.0.0.1:3001/login" method="POST">
+            <label>用户名：</label><input type="text" name="username" placeholder="请输入用户名"/><br /><br /><br />
+            <label>密码：</label><input type="password" name="password" placeholder="请输入密码"/><br /><br />
+            <input type="submit" value="登录" />
+            {{if flag == 1}}
+                <p style="color: red;">请输入正确的用户名或密码</p>
+                {{else if flag == 2}}
+                <p style="color: red;">您还没有账号，去注册</p>
+            {{/if}}
+            <a href="/register">去注册</a>
+        </form>
+    </div>
+</body>
+</html>

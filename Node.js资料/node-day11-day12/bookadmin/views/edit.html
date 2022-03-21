@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改图书</title>
+    <link rel="stylesheet" href="/css/add.css" />
+</head>
+<body>
+    <div class="add edit">
+        <h3>修改图书</h3>
+        <form action="http://127.0.0.1:3001/editBook" method="POST">
+            <input type="hidden" name="id" value="{{id}}"/>
+            <label>名称：</label><input type="text" name="name" value="{{name}}" placeholder="请输入图书名称"/><br /><br />
+            <label>作者：</label><input type="text" name="author" value="{{author}}" placeholder="请输入图书作者"/><br /><br />
+            <label>分类：</label><input type="text" name="categroy" value="{{categroy}}" placeholder="请输入图书分类"/><br /><br />
+            <label>描述：</label><input type="text" name="description" value="{{description}}" placeholder="请输入图书描述"/><br /><br />
+            <input type="submit" value="修改" />
+        </form>
+    </div>
+</body>
+</html>

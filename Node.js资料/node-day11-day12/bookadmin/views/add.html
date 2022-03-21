@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加图书</title>
+    <link rel="stylesheet" href="/css/add.css" />
+</head>
+<body>
+    <div class="add">
+        <h3>添加图书</h3>
+        <form action="http://localhost:3001/addBook" method="POST">
+            <label>名称：</label><input type="text" name="name" placeholder="请输入图书名称"/><br /><br />
+            <label>作者：</label><input type="text" name="author" placeholder="请输入图书作者"/><br /><br />
+            <label>分类：</label><input type="text" name="categroy" placeholder="请输入图书分类"/><br /><br />
+            <label>描述：</label><input type="text" name="description" placeholder="请输入图书描述"/><br /><br />
+            <input type="submit" value="添加" />
+        </form>
+    </div>
+</body>
+</html>

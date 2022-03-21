@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="/css/index.css" />
+</head>
+
+<body>
+    <header>
+        <h3>图书管理系统</h3>
+    </header>
+    <section>
+        <form action="http://localhost:3001/search" method="GET">
+            <label>请输入名称搜索：</label><input type="text" name="name" value="{{keyword}}" />
+            <input type="submit" value="搜索" />
+            <a href="/add">添加图书</a>
+        </form>
+        <table border="1" cellpadding="0" cellspacing="0" style="width: 100%;">
+            <thead height="40">
+                <th>编号</th>
+                <th>名称</th>
+                <th>作者</th>
+                <th>分类</th>
+                <th>描述</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+                {{if list.length == 0}}
+                <tr height="40" align="center">
+                    <td colspan="6">
+                        没有查询到图书
+                    </td>
+                </tr>
+                {{else if list.length > 0}}
+                {{each list}}
+                <tr height="40" align="center">
+                    <td>{{$value.id}}</td>
+                    <td>{{$value.name}}</td>
+                    <td>{{$value.author}}</td>
+                    <td>{{$value.categroy}}</td>
+                    <td>{{$value.description}}</td>
+                    <td><a href="/edit?id={{$value.id}}">修改</a> | <a href="/delete?id={{$value.id}}">删除</a></td>
+                </tr>
+                {{/each}}
+                {{/if}}
+
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>
